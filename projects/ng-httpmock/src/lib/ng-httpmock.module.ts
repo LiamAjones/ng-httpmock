@@ -3,6 +3,7 @@ import { MockSettings } from './contracts/mock-settings';
 import { MockRoute } from './contracts/mock-route';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpMockService } from './ng-httpmock.service';
+import { Rx } from 'rxjs/Rx';
 
 @NgModule({
     providers: [
