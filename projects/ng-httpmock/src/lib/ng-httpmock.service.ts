@@ -22,8 +22,6 @@ export class HttpMockService {
             console.log('mock found:', mock);
         }
         
-        console.log('break gh action');
-
         return new Observable<any>((creator: Subscriber<any>) => {
             creator.next(new HttpResponse({
                 body: mock.response,
