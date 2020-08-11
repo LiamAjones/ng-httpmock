@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpMockService } from './ng-httpmock.service';
+import { HttpMockService } from "./ng-httpmock.service";
 
 describe('NgHttpmockService', () => {
     beforeEach(() => TestBed.configureTestingModule({}));
