@@ -1,165 +1,43 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "ng-httpmock": {
-            "projectType": "library",
-            "root": "projects/ng-httpmock",
-            "sourceRoot": "projects/ng-httpmock/src",
-            "prefix": "lib",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
-                    "options": {
-                        "tsConfig": "projects/ng-httpmock/tsconfig.lib.json",
-                        "project": "projects/ng-httpmock/ng-package.json"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/ng-httpmock/src/test.ts",
-                        "tsConfig": "projects/ng-httpmock/tsconfig.spec.json",
-                        "karmaConfig": "projects/ng-httpmock/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/ng-httpmock/tsconfig.lib.json",
-                            "projects/ng-httpmock/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
-            }
-        },
-        "ng-httpmock-demo": {
-            "projectType": "application",
-            "schematics": {
-                "@schematics/angular:component": {
-                    "style": "scss"
-                }
-            },
-            "root": "projects/ng-httpmock-demo",
-            "sourceRoot": "projects/ng-httpmock-demo/src",
-            "prefix": "app",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/ng-httpmock-demo",
-                        "index": "projects/ng-httpmock-demo/src/index.html",
-                        "main": "projects/ng-httpmock-demo/src/main.ts",
-                        "polyfills": "projects/ng-httpmock-demo/src/polyfills.ts",
-                        "tsConfig": "projects/ng-httpmock-demo/tsconfig.app.json",
-                        "aot": false,
-                        "assets": [
-                            "projects/ng-httpmock-demo/src/favicon.ico",
-                            "projects/ng-httpmock-demo/src/assets"
-                        ],
-                        "styles": [
-                            "projects/ng-httpmock-demo/src/styles.scss"
-                        ],
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "projects/ng-httpmock-demo/src/environments/environment.ts",
-                                    "with": "projects/ng-httpmock-demo/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "ng-httpmock-demo:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "ng-httpmock-demo:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "ng-httpmock-demo:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/ng-httpmock-demo/src/test.ts",
-                        "polyfills": "projects/ng-httpmock-demo/src/polyfills.ts",
-                        "tsConfig": "projects/ng-httpmock-demo/tsconfig.spec.json",
-                        "karmaConfig": "projects/ng-httpmock-demo/karma.conf.js",
-                        "assets": [
-                            "projects/ng-httpmock-demo/src/favicon.ico",
-                            "projects/ng-httpmock-demo/src/assets"
-                        ],
-                        "styles": [
-                            "projects/ng-httpmock-demo/src/styles.scss"
-                        ],
-                        "scripts": []
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/ng-httpmock-demo/tsconfig.app.json",
-                            "projects/ng-httpmock-demo/tsconfig.spec.json",
-                            "projects/ng-httpmock-demo/e2e/tsconfig.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                },
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "projects/ng-httpmock-demo/e2e/protractor.conf.js",
-                        "devServerTarget": "ng-httpmock-demo:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "ng-httpmock-demo:serve:production"
-                        }
-                    }
-                }
-            }
-        }
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+    "peerDependencies": {
+        "@angular/common": "^8.2.14",
+        "@angular/core": "^8.2.14"
     },
-    "defaultProject": "ng-httpmock"
+    "projects": {
+      "ng-httpmock": {
+        "projectType": "library",
+        "root": "ng-httpmock",
+        "sourceRoot": "ng-httpmock/src",
+        "prefix": "lib",
+        "architect": {
+          "build": {
+            "builder": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+              "project": "ng-httpmock/ng-package.json"
+            },
+            "configurations": {
+              "production": {
+                "tsConfig": "ng-httpmock/tsconfig.lib.prod.json"
+              },
+              "development": {
+                "tsConfig": "ng-httpmock/tsconfig.lib.json"
+              }
+            },
+            "defaultConfiguration": "production"
+          },
+          "test": {
+            "builder": "@angular-devkit/build-angular:karma",
+            "options": {
+              "tsConfig": "ng-httpmock/tsconfig.spec.json",
+              "polyfills": [
+                "zone.js",
+                "zone.js/testing"
+              ]
+            }
+          }
+        }
+      }
+    }
 }

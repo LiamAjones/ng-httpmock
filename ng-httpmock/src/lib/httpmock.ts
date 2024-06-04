@@ -1,4 +1,4 @@
-import { StatusCode } from '../enums/status-codes';
+import { StatusCode } from './statuscodes';
 
 export interface MockRoute {
     url: string | RegExp;
@@ -6,4 +6,8 @@ export interface MockRoute {
     method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
     status: StatusCode;
     delay?: number;
+}
+
+export interface MockSettings {
+  enableLogging: boolean;
 }
